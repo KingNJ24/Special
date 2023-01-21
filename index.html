@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Message</title>
+    <style>
+      /* CSS for styling the form and image */
+      h1,h2{
+        text-align: center;
+        font-style: italic;
+      }
+      form {
+        text-align: center;
+      }
+      label {
+        font-weight: bold;
+      }
+      input[type="text"] {
+        padding: 12px 20px;
+        margin: 8px 0;
+        box-sizing: border-box;
+        border: 2px solid #ccc;
+        border-radius: 4px;
+      }
+      input[type="submit"] {
+        background-color: #4CAF50;
+        color: white;
+        padding: 14px 20px;
+        margin: 8px 0;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+      }
+      #output {
+        display: none;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0,0,0,0.5);
+        text-align: center;
+        color: white;
+        font-size: 24px;
+      }
+      #output img {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 50%;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Fill the information just to get verified</h1>
+    <h2>Please type everything in lower case letters</h2>
+    <form id="form" onsubmit="return checkForm()">
+      <label for="fullname">Full Name:</label>
+      <input type="text" id="fullname" name="fullname">
+      <br>
+      <label for="dob">Date of Birth:</label>
+      <input type="text" id="dob" name="dob">
+      <br>
+      <label for="bookName">Book I read last:</label>
+      <input type="text" id="bookName" name="bookName">
+      <br><br>
+      <input type="submit" value="Submit">
+    </form>
+    <div id="output">
+      <p>Hey you know, I'm literally dying don't leave me🥺🥺</p>
+      <img src="anime.jpg.png" alt="Anime couple">
+    </div>
+    <script>
+      function checkForm() {
+        // Get the user's input
+        var fullname = document.getElementById("fullname").value;
+        var dob = document.getElementById("dob").value;
+        var bookName = document.getElementById("bookName").value;
+
+        // Validate the user's input
+        if (fullname == "" || dob == "" || bookName == "") {
+            alert("All fields are required!");
+            return false;
+        } else {
+          //Checking if the information is correct
+          if(fullname == "smrita shukla" && dob == "29/02/2003" && bookName == "it ends with us"){
+            // Save the user's input to local storage
+            localStorage.setItem("submitted", true);
+
+            // Show the output element
+            document.getElementById("output").style.display = "block";
+            // message 
+            // Hide the output element after 5 minutes
+            setTimeout(function() {
+                document.getElementById("output").style.display = "none";
+                localStorage.removeItem("submitted");
+            }, 300000);
+            return false;
+          } else {
+            alert("Sorry this message is not for you");
+            return false;
+          }
+        }
+      }
+    </script>
+  </body>
+</html>
