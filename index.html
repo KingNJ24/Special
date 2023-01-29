@@ -67,41 +67,45 @@
       <input type="submit" value="Submit">
     </form>
     <div id="output">
-      <p>Hey you know, I'm literally dying don't leave me🥺🥺</p>
-      <img src="anime.jpg.png" alt="Anime couple">
+      <p>Happy Birthday...😑</p>
+      <img src="feelsLikeThat.jpg" alt="Anime couple">
     </div>
     <script>
       function checkForm() {
-        // Get the user's input
-        var fullname = document.getElementById("fullname").value;
-        var dob = document.getElementById("dob").value;
-        var bookName = document.getElementById("bookName").value;
+    // Get the user's input
+    var fullname = document.getElementById("fullname").value;
+    var dob = document.getElementById("dob").value;
+    var bookName = document.getElementById("bookName").value;
 
-        // Validate the user's input
-        if (fullname == "" || dob == "" || bookName == "") {
-            alert("All fields are required!");
-            return false;
-        } else {
-          //Checking if the information is correct
-          if(fullname == "smrita shukla" && dob == "29/01/2003" && bookName == "it ends with us"){
-            // Save the user's input to local storage
-            localStorage.setItem("submitted", true);
+    // Validate the user's input
+    if (fullname == "" || dob == "" || bookName == "") {
+        alert("All fields are required!");
+        return false;
+    } else {
+      //Checking if the information is correct
+      if(fullname == "smrita shukla" && dob == "29/01/2003" && bookName == "it ends with us"){
+        // Save the user's input to local storage
+        localStorage.setItem("submitted", true);
 
-            // Show the output element
-            document.getElementById("output").style.display = "block";
-            // message 
-            // Hide the output element after 5 minutes
-            setTimeout(function() {
-                document.getElementById("output").style.display = "none";
-                localStorage.removeItem("submitted");
-            }, 300000);
-            return false;
-          } else {
-            alert("Sorry this message is not for you");
-            return false;
-          }
-        }
+        // Show the output element
+        document.getElementById("output").style.display = "block";
+        // message 
+        var msg = new SpeechSynthesisUtterance();
+        msg.text = "Welcome Miss Ismrita, Master Nikhil made this to wish you a happy birthday";
+        window.speechSynthesis.speak(msg);
+        // Hide the output element after 5 minutes
+        setTimeout(function() {
+            document.getElementById("output").style.display = "none";
+            localStorage.removeItem("submitted");
+        }, 300000);
+        return false;
+      } else {
+        alert("Sorry this message is not for you");
+        return false;
       }
+    }
+  }
+
     </script>
   </body>
 </html>
