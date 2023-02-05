@@ -76,7 +76,7 @@
       <input type="submit" value="Submit">
     </form>
     <div id="output">
-      <p>College k baad chai ki tapri par..</p>
+      <p></p>
       <img src="feelsLikeThat.jpg" alt="Anime couple">
     </div>
     <script>
@@ -92,7 +92,7 @@
         return false;
     } else {
       //Checking if the information is correct
-      if(fullname == "smrita shukla" && dob == "29/02/2003" && bookName == "it ends with us"){
+      if(fullname == "smrita shukla" && dob == "29/01/2003" && bookName == "it ends with us"){
         // Save the user's input to local storage
         localStorage.setItem("submitted", true);
 
@@ -100,7 +100,7 @@
         document.getElementById("output").style.display = "block";
         // message 
         var msg = new SpeechSynthesisUtterance();
-        msg.text = "Welcome Miss Ismrita,i am itadori master Nikhil's personal assistant, i hope your day is going well, Master will be waiting for you at yadav tapri";
+        msg.text = "Welcome Miss Ismrita,i am itadori master Nikhil's personal assistant, i hope your day is going well.";
         window.speechSynthesis.speak(msg);
         // Hide the output element after 5 minutes
         setTimeout(function() {
